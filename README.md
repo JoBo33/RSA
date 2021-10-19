@@ -14,7 +14,7 @@ The next step is the Euler's phi function.
 > phi(n) = (p-1)(q-1)  
 
 Than one have to find a relatively prime number e where the biggest common factor is equal to one.
-> bcf(e, \varphi(n)) = 1
+> bcf(e, phi(n)) = 1
 
 If one chooses such an e, then e is invertible in Z/phi(n) * Z. Thus one can calculate an element d in N inverse to e with the following formula:
 > e * d = 1 mod * phi(n)
