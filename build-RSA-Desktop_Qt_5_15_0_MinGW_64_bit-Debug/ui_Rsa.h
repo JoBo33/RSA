@@ -51,7 +51,7 @@ public:
     {
         if (Rsa->objectName().isEmpty())
             Rsa->setObjectName(QString::fromUtf8("Rsa"));
-        Rsa->resize(421, 389);
+        Rsa->resize(415, 420);
         verticalLayout = new QVBoxLayout(Rsa);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         formLayout_2 = new QFormLayout();
@@ -151,6 +151,8 @@ public:
 
 
         retranslateUi(Rsa);
+        QObject::connect(textEditInput, SIGNAL(textChanged()), textEditEncodedInput, SLOT(clear()));
+        QObject::connect(textEditInput, SIGNAL(textChanged()), textEditOutput, SLOT(clear()));
 
         QMetaObject::connectSlotsByName(Rsa);
     } // setupUi

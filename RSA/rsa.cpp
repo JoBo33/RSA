@@ -1,4 +1,5 @@
 #include "rsa.h"
+#include <QMessageBox>
 
 Rsa::Rsa(QWidget *parent) : QWidget(parent)
 {
@@ -18,6 +19,7 @@ Rsa::Rsa(QWidget *parent) : QWidget(parent)
 
     connect(pushButtonEncode, SIGNAL (clicked()), this, SLOT(encodeTheInput()));
     connect(pushButtonDecode, SIGNAL (clicked()), this, SLOT(decodeTheEncoding()));
+
 }
 
 
@@ -51,8 +53,11 @@ void Rsa::encodeTheInput()
 
 void Rsa::decodeTheEncoding(){
     QString input = textEditInput->toPlainText();
-    if(input.isEmpty()){
-        //missingInputException();
+    if(textEditEncodedInput->toPlainText().isEmpty()){
+        QMessageBox *a = new QMessageBox();
+        a->setGeometry(50, 50, 400, 200);
+        a->setText("You have to encode the input first.");
+        a->show();
         return;
     }
     QString encrypted;

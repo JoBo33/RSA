@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>421</width>
-    <height>389</height>
+    <width>415</width>
+    <height>420</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -180,5 +180,38 @@
   </layout>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>textEditInput</sender>
+   <signal>textChanged()</signal>
+   <receiver>textEditEncodedInput</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>210</x>
+     <y>72</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>210</x>
+     <y>208</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>textEditInput</sender>
+   <signal>textChanged()</signal>
+   <receiver>textEditOutput</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>210</x>
+     <y>72</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>210</x>
+     <y>344</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>
