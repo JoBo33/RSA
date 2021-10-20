@@ -26,8 +26,11 @@ Rsa::Rsa(QWidget *parent) : QWidget(parent)
 void Rsa::encodeTheInput()
 {
     QString input = textEditInput->toPlainText();
-    if(input.isEmpty()){
-        //missingInputException();
+    if(textEditEncodedInput->toPlainText().isEmpty()){
+        QMessageBox *a = new QMessageBox();
+        a->setGeometry(this->geometry().center().x(),this->geometry().center().y(), 400, 200);
+        a->setText("Input is missing");
+        a->show();
         return;
     }
     QString encrypted;
@@ -55,7 +58,7 @@ void Rsa::decodeTheEncoding(){
     QString input = textEditInput->toPlainText();
     if(textEditEncodedInput->toPlainText().isEmpty()){
         QMessageBox *a = new QMessageBox();
-        a->setGeometry(50, 50, 400, 200);
+        a->setGeometry(this->geometry().center().x(),this->geometry().center().y(), 400, 200);
         a->setText("You have to encode the input first.");
         a->show();
         return;
