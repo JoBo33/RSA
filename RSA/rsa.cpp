@@ -10,11 +10,11 @@ Rsa::Rsa(QWidget *parent) : QWidget(parent)
 
     n = p * q;
 
-    phi_n =(p-1)*(q-1); //
+    phi_n =(p-1)*(q-1);
 
-    e = 7; // just one possible value
-    /*double d1 =(double)1/e;
-    d = fmod(d1,(double)phi_n);*/ d = (1 + phi_n) / e;
+    e = 7;
+    double d1 =(double)1/e;
+    d = fmod(d1,(double)phi_n); /* (1 + phi_n) / e; */
 
     connect(pushButtonEncode, SIGNAL (clicked()), this, SLOT(encodeTheInput()));
     connect(pushButtonDecode, SIGNAL (clicked()), this, SLOT(decodeTheEncoding()));
@@ -74,10 +74,15 @@ void Rsa::decodeTheEncoding(){
 
         y = y%n;
         m = fmod(m,(double)n);
+        long ceilingOfM = qCeil(m);
         encrypted.append(QString :: number(y));
         encrypted.append(" ");
-        decrypted.append(QString:: number(m));
-        decrypted.append(" ");
+
+        QChar convert = (char)ceilingOfM;
+        decrypted.append(convert);
+
+        //decrypted.append(QString::number(m));
+        //decrypted.append(" ");
     }
     textEditEncodedInput->setText(encrypted);
     textEditOutput->setText(decrypted);
