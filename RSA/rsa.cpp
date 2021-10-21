@@ -67,14 +67,11 @@ void Rsa::decodeTheEncoding(){
     QString decrypted;
     for(int i = 0; i < input.length(); i++){
         QChar tm = input.at(i);
-        //QChar tm2 = input.at(++i);
 
-        int s1 = tm.toLatin1(); // -30 to avoid integer bigger than 9999
-        //int s2 = tm2.toLatin1() - 30;
+        int s1 = tm.toLatin1();
 
         QString toEncrypt ;
         toEncrypt.append(QString :: number(s1));
-        //toEncrypt.append(QString :: number(s2));
 
         long x = toEncrypt.toInt();
         unsigned long long y = (unsigned long long)qPow(x,e);
@@ -89,41 +86,8 @@ void Rsa::decodeTheEncoding(){
         QChar convert = (char)ceilingOfM;
         decrypted.append(convert);
 
-        //decrypted.append(QString::number(m));
-        //decrypted.append(" ");
+        //decrypted.append(QString::number(m)); // Output = Input as ascii-code
     }
     textEditEncodedInput->setText(encrypted);
     textEditOutput->setText(decrypted);
 }
-//void Rsa::decodeTheEncoding()
-//{
-//    QString encodedInput = textEditEncodedInput->toPlainText();
-//    int decoded;
-//    QString message;
-//    int index1 = 0;
-//    int index2 = 0;
-//    for(int i = 0; i < encodedInput.length(); i++){
-//        index2 = i;
-//        if(encodedInput.at(i) == " "){
-//            QString part;
-//            for(int j = index1; j < index2; j++){
-//                part += encodedInput.at(j);
-//            }
-//            index1 = index2;
-//            int partToDecode = part.toInt();
-//            decoded = (long)qPow(partToDecode,d)%n;
-//            message.append(QString::number(decoded));
-//        }
-//    }
-//    textEditOutput->setText(message);
-//}
-//long Rsa::findRelativelyPrimeNumber(long a)
-//{
-//    for(int b = 2; )
-//
-//    return 1;
-//}
-//
-//long Rsa::biggestCommonFactor(long a, long b){
-//
-//}
