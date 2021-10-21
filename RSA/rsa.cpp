@@ -36,14 +36,11 @@ void Rsa::encodeTheInput()
     QString encrypted;
     for(int i = 0; i < input.length(); i++){
         QChar tm = input.at(i);
-        //QChar tm2 = input.at(++i);
 
-        int s1 = tm.toLatin1(); // -30 to avoid integer bigger than 9999
-        //int s2 = tm2.toLatin1() - 30;
+        int s1 = tm.toLatin1();
 
         QString toEncrypt ;
         toEncrypt.append(QString :: number(s1));
-        //toEncrypt.append(QString :: number(s2));
 
         long x = toEncrypt.toInt();
         unsigned long long y = ((unsigned long long)qPow(x,e)%n);
