@@ -7,7 +7,7 @@ RSA is a procedure to generate and encrypt digital signatures. Furthermore, RSA 
 ## The procedure
 
 ### Create keys
-First one need to choose 2 primenumbers p and q (the higher the numbers, the safer is the encryption). After that one have to multiply the numbers.
+First one need to choose 2 prime numbers p and q (the higher the numbers, the safer is the encryption). After that one have to multiply the numbers.
 > n = p * q  
 
 The next step is the Euler's phi function.  
@@ -23,7 +23,7 @@ So, the public key consists of n and e and the private key consists of p,q and d
 
 ### Encoding / decoding
 
-To handle the message, one have to convert the message with help of the ascii-values to an integer. The message will be encoded in different parts. Every part has a length of 4.
+To handle the message, one have to convert the message with help of the ascii-values to an integer. The message will be encoded in different parts. Every part has a length of 4 (just one possibility).
 If x is the message, the sender can encode the message with the public key of the receiver by 
 > y = x^e
 
