@@ -26,7 +26,7 @@ Rsa::Rsa(QWidget *parent) : QWidget(parent)
 void Rsa::encodeTheInput()
 {
     QString input = textEditInput->toPlainText();
-    if(textEditEncodedInput->toPlainText().isEmpty()){
+    if(textEditInput->toPlainText().isEmpty()){
         QMessageBox *a = new QMessageBox();
         a->setGeometry(this->geometry().center().x(),this->geometry().center().y(), 400, 200);
         a->setText("Input is missing");
